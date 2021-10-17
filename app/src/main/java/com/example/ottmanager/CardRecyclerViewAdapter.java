@@ -3,6 +3,7 @@ package com.example.ottmanager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +14,7 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 
 
-public class CardRecyclerView extends RecyclerView.Adapter<CardRecyclerView.ViewHolder> {
+public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<Subscription> localDataSet;
 
@@ -22,14 +23,14 @@ public class CardRecyclerView extends RecyclerView.Adapter<CardRecyclerView.View
         //private final TextView textView;
 
         private TextView nameTvCard, costTvCard, expiryTvCard;
-        private ShapeableImageView logoSpImgVCard;
+        private ImageView logoImgVCard;
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
             nameTvCard = view.findViewById(R.id.ottNameCard);
             costTvCard = view.findViewById(R.id.ottCostCard);
             expiryTvCard = view.findViewById(R.id.ottNextPaymentCard);
-            logoSpImgVCard = view.findViewById(R.id.ottLogoCard);
+            logoImgVCard = view.findViewById(R.id.ottLogoCard);
             //textView = (TextView) view.findViewById(R.id.textView);
         }
 
@@ -45,8 +46,8 @@ public class CardRecyclerView extends RecyclerView.Adapter<CardRecyclerView.View
             return expiryTvCard;
         }
 
-        public ShapeableImageView getLogoSpImgVCard() {
-            return logoSpImgVCard;
+        public ImageView getLogoImgVCard() {
+            return logoImgVCard;
         }
     }
 
@@ -56,7 +57,7 @@ public class CardRecyclerView extends RecyclerView.Adapter<CardRecyclerView.View
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public CardRecyclerView(ArrayList<Subscription> dataSet) {
+    public CardRecyclerViewAdapter(ArrayList<Subscription> dataSet) {
         localDataSet = dataSet;
     }
 
